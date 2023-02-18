@@ -1,19 +1,41 @@
 <div class="row">
     <div class="col-xs-12">
       <p>> Add new servers or blueprints:</p>
+
       <label>Server Name</label>
+
+      <!-- Uses 2-way binding -->
       <input type="text" class="form-control" [(ngModel)]="newServerName">
+
       <br>
+
+      <!-- Uses 2-way binding -->
       <label>Server Content</label>
       <input type="text" class="form-control" [(ngModel)]="newServerContent">
       <br>
 
+      <!-- Uses location reference -->
+      <label>Cell Location</label>
+      <input type="text" class="form-control" #locationNameInput>
+
+      <br>
+
       <button
         class="btn btn-primary" (click)="onAddServer()" 
-        [disabled]="newServerName === '' || newServerContent === ''">Add Server</button>
+        [disabled]="newServerName === '' || newServerContent === ''">Add Server
+      </button>
 
       <button
         class="btn btn-primary" (click)="onAddBlueprint()"
-        [disabled]="newServerName === '' || newServerContent === ''">Add Server Blueprint</button>
+        [disabled]="newServerName === '' || newServerContent === ''">Add Server Blueprint
+      </button>
+
+      <!-- An approach that uses a local reference to the input element, instead of 2-way binding -->
+      <!-- but then we lose the dynamic binding that allows the button the enable/disable -->
+      <button
+        class="btn btn-primary" (click)="onAddCellLocation(locationNameInput)"
+        [disabled]="newServerName === '' || newServerContent === ''">Add Cell
+      </button>
+
     </div>
   </div>

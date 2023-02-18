@@ -1,8 +1,10 @@
 <div class="container">
   <app-cockpit
     (serverCreated)="onServerAdded($event)"
-    (bpCreatedAlias)="onBlueprintAdded($event)"></app-cockpit>
-  <hr>
+    (bpCreatedAlias)="onBlueprintAdded($event)"
+    (cellLocationCreated)="onAddCellLocation($event)"></app-cockpit>
+
+    <hr>
   <div class="row">
     <div class="col-xs-12">
       <app-server-element

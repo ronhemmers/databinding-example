@@ -25,4 +25,13 @@ export class AppComponent {
       content: blueprintData.serverContent
     });
   }
+
+  onAddCellLocation(serverData: {serverName: string, serverContent: string, cellLocation: string}) {
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName + " - " + serverData.cellLocation,
+      content: serverData.serverContent
+    });
+  }
+
 }
