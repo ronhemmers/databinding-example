@@ -9,9 +9,9 @@
 
       <br>
 
-      <!-- Uses 2-way binding -->
+      <!-- Uses @ViewChild to get access -->
       <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
+      <input type="text" class="form-control" #serverContentInput>
       <br>
 
       <!-- Uses location reference -->
@@ -22,19 +22,19 @@
 
       <button
         class="btn btn-primary" (click)="onAddServer()" 
-        [disabled]="newServerName === '' || newServerContent === ''">Add Server
+        [disabled]="newServerName === ''">Add Server
       </button>
 
       <button
         class="btn btn-primary" (click)="onAddBlueprint()"
-        [disabled]="newServerName === '' || newServerContent === ''">Add Server Blueprint
+        [disabled]="newServerName === ''">Add Blueprint
       </button>
 
       <!-- An approach that uses a local reference to the input element, instead of 2-way binding -->
       <!-- but then we lose the dynamic binding that allows the button the enable/disable -->
       <button
         class="btn btn-primary" (click)="onAddCellLocation(locationNameInput)"
-        [disabled]="newServerName === '' || newServerContent === ''">Add Cell
+        [disabled]="newServerName === ''">Add Cell
       </button>
 
     </div>

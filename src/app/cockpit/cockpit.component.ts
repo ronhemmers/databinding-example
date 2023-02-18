@@ -10,27 +10,34 @@ export class CockpitComponent implements OnInit {
   @Output('bpCreatedAlias') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output() cellLocationCreated = new EventEmitter<{serverName: string, serverContent: string, cellLocation: string}>();
 
-  @ViewChild('serverContentInput', {static: true})
-  serverContentInput: ElementRef
+  // Variables/data
+  // 1. 2-way binding
+  // 2. Local reference
+  // 3. @ViewChild with local reference
 
+  // 2-way binding
   newServerName = '';
-  newServerContent = '';
+
+  // ViewChild with reference in html
+  @ViewChild('serverContentInput', {static: true}) serverContentInput: ElementRef
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onAddServer() {
+    console.log(this.serverContentInput);
+    console.log(this.serverContentInput.nativeElement.value);
     this.serverCreated.emit({
       serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
   onAddBlueprint() {
     this.blueprintCreated.emit({
       serverName: this.newServerName,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
@@ -40,7 +47,7 @@ export class CockpitComponent implements OnInit {
 
     this.cellLocationCreated.emit({
       serverName: this.newServerName,
-      serverContent: this.newServerContent,
+      serverContent: this.serverContentInput.nativeElement.value,
       cellLocation: locationNameInput.value
     });
   }
