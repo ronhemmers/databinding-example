@@ -28,7 +28,7 @@ export class AppComponent {
 
   onAddCellLocation(serverData: {serverName: string, serverContent: string, cellLocation: string}) {
     this.serverElements.push({
-      type: 'server',
+      type: 'cell',
       name: serverData.serverName + " - " + serverData.cellLocation,
       content: serverData.serverContent
     });

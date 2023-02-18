@@ -44,7 +44,6 @@ export class CockpitComponent implements OnInit {
   onAddCellLocation(locationNameInput: HTMLInputElement) {
     console.log(locationNameInput);
     console.log(locationNameInput.value);
-
     this.cellLocationCreated.emit({
       serverName: this.newServerName,
       serverContent: this.serverContentInput.nativeElement.value,
