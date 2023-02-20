@@ -34,4 +34,14 @@ export class AppComponent {
     });
   }
 
+  OnChangeFirst(): void {
+    this.serverElements[0].name = 'Changed!';
+  }
+
+  /**
+   * Remove the 1st element of the array
+   */
+  OnDestroyFirst(): void {
+    this.serverElements.splice(0, 1);
+  }
 }
