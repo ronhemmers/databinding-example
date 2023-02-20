@@ -21,7 +21,8 @@
       <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement" [name]="serverElement.name">
 
         <!-- This content will be display in the server-element component using ng-content -->
-        <p>
+        <!-- Now we want to use #contentParagraph in the server component -->
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
           <strong *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</strong>
           <strong *ngIf="serverElement.type === 'cell'" style="color: green">{{ serverElement.content }}</strong>
