@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck,
-         AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+         AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy,
+         ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -12,6 +13,7 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck,
                                                OnDestroy {
   // @Input('srvElement') element: {type: string, name: string, content: string};  // javascript object type.. notice the use of an alias
   @Input() name: string;  // bound from outside
+  @ViewChild('heading', {static: true}) header: ElementRef
 
   constructor() {
     console.log('[server-element] constructor called');
@@ -24,6 +26,8 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck,
 
   ngOnInit(): void {
     console.log('[server-element] ngOnInit() called');
+    // can we access the local reference 'header'?
+    console.log('Text Content [ngOnInit()] --> ' + this.header.nativeElement.textContent);  // nothing!
   }
 
   ngDoCheck(): void {
@@ -40,6 +44,7 @@ export class ServerElementComponent implements OnInit, OnChanges, DoCheck,
 
   ngAfterViewInit(): void {
     console.log('[server-element] ngAfterViewInit() called');
+    console.log('Text Content [ngAfterViewInit()] --> ' + this.header.nativeElement.textContent);
   }
 
   ngAfterViewChecked(): void {
