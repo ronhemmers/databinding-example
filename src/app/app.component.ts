@@ -35,13 +35,18 @@ export class AppComponent {
   }
 
   OnChangeFirst(): void {
-    this.serverElements[0].name = 'Changed!';
+    console.log("Length of array: " + this.serverElements.length);
+    if (this.serverElements.length > 0) {
+      this.serverElements[0].name = 'Changed!';
+    }
   }
 
   /**
    * Remove the 1st element of the array
    */
   OnDestroyFirst(): void {
+    console.log("[before] Length of array: " + this.serverElements.length);
     this.serverElements.splice(0, 1);
+    console.log("[after] Length of array: " + this.serverElements.length);
   }
 }
