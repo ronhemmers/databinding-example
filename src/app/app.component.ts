@@ -10,6 +10,12 @@ export class AppComponent {
     {type: 'server', name: 'TestServer01', content: 'Some content here'}
   ];
 
+  // pass this along to the server-element property for verbose/non-verbose conole log output
+  verbose: boolean = true;
+
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
@@ -35,7 +41,9 @@ export class AppComponent {
   }
 
   OnChangeFirst(): void {
-    console.log("Length of array: " + this.serverElements.length);
+    if (this.verbose)
+      console.log("Length of array: " + this.serverElements.length);
+
     if (this.serverElements.length > 0) {
       this.serverElements[0].name = 'Changed!';
     }
@@ -45,8 +53,26 @@ export class AppComponent {
    * Remove the 1st element of the array
    */
   OnDestroyFirst(): void {
-    console.log("[before] Length of array: " + this.serverElements.length);
+    if (this.verbose)
+      console.log("[before] Length of array: " + this.serverElements.length);
+
     this.serverElements.splice(0, 1);
-    console.log("[after] Length of array: " + this.serverElements.length);
+
+    if (this.verbose)
+      console.log("[after] Length of array: " + this.serverElements.length);
+  }
+
+  // ----------------------------------------------------------------------
+
+  onIntervalFired(firedNumber: number): void {
+    this.verbose = false;
+
+    if (firedNumber % 2 === 0) {
+      this.evenNumbers.push(firedNumber);
+    } else {
+      this.oddNumbers.push(firedNumber);
+    }
+    
+    console.log("[onIntervalFired()] firedNumber = " + firedNumber);
   }
 }

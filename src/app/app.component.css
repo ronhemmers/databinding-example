@@ -10,3 +10,19 @@ p {
 .btn {
   margin: 0px 10px 20px 0px;
 }
+
+/* .float-container {
+  border: 10px solid #fff;
+  padding: 0px 0px 0px 0px;
+}
+
+.float-child {
+  width: 15%;
+  float: left;
+  padding: 0px 0px 0px 0px;
+  border: 1px solid lightgray;
+} */
+
+.float-child.green {
+  margin-right: 20px;
+}

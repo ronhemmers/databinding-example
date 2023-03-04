@@ -18,7 +18,7 @@
       <button class="btn btn-primary" (click)="OnChangeFirst()">Change First Element</button>
       <button class="btn btn-danger" (click)="OnDestroyFirst()">Destroy First Element</button>
 
-      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement" [name]="serverElement.name">
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement" [name]="serverElement.name" [verbose]="verbose">
 
         <!-- This content will be display in the server-element component using ng-content -->
         <!-- Now we want to use #contentParagraph in the server component -->
@@ -29,6 +29,24 @@
         </p>
 
       </app-server-element>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+    </div>
+  </div>
+
+  
+  <div class="float-container">
+    <div class="float-child green">
+      <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+    </div>
+    <div class="float-child blue">
+      <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
     </div>
   </div>
 
