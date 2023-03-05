@@ -40,7 +40,6 @@
     </div>
   </div>
 
-  
   <div class="float-container">
     <div class="float-child green">
       <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
@@ -50,4 +49,11 @@
     </div>
   </div>
 
+  <hr>
+
+  <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+  <br>
+  <ul class="list-group">
+    <li class="list-group-item"></li>
+  </ul>
 </div>
