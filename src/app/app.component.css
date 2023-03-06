@@ -26,3 +26,9 @@ p {
 .float-child.green {
   margin-right: 20px;
 }
+
+/* ----------------------------------- */
+
+.odd {
+  color: red;
+}

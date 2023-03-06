@@ -78,6 +78,14 @@ export class AppComponent {
 
   // ----------------------------------------------------------------------
 
-  numbers = [1, 2, 3, 4, 5];
+  someEvenNumbers: number[] = [2, 4, 6, 8, 10];
+  someOddNumbers: number[] = [1, 3, 5, 7, 9];
   onlyOdd = false;
+
+  /**
+   * What text to display on the button.
+   */
+  getToggleString(): string {
+    return this.onlyOdd ? "Show only even numbers" : "Show only odd numbers";
+  }
 }
