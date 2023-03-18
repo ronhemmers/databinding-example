@@ -1,4 +1,4 @@
-import { Directive, Renderer2, OnInit, ElementRef } from '@angular/core';
+import { Directive, Renderer2, OnInit, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appBetterHighlight]'
@@ -22,7 +22,28 @@ export class BetterHighlightDirective implements OnInit {
    * Do your initialization in here instead of the constructor.
    */
   ngOnInit(): void {
+    // Let's remove it from here and add it into the HostListener below...
+    // this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'Khaki');
+  }
+
+  /**
+   * Listen to the 'mouseenter' event on the DOM element.
+   *
+   * The passed string argument is one of the events supported by DOM element it sits on.
+   *
+   * Here we just want to change the background color.
+   */
+  @HostListener('mouseenter') mouseover(eventData: Event) {
     this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'Khaki');
+  }
+
+  /**
+   * Listen to the 'mouseleave' event on the DOM element.
+   *
+   * @param eventData 
+   */
+  @HostListener('mouseleave') mouseleave(eventData: Event) {
+    this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'transparent');
   }
 
 }
