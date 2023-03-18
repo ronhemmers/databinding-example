@@ -80,7 +80,7 @@ export class AppComponent {
 
   someEvenNumbers: number[] = [2, 4, 6, 8, 10];
   someOddNumbers: number[] = [1, 3, 5, 7, 9];
-  onlyOdd = false;
+  onlyOdd: boolean = false;
 
   /**
    * What text to display on the button.
