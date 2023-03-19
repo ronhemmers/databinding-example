@@ -12,6 +12,7 @@ import { BasicHighlightDirective } from './basic-highlight/basic-highlight.direc
 import { BetterHighlightDirective } from './better-highlight/better-highlight.directive';
 import { ThirdHighlightDirective } from './third-highlight/third-highlight.directive';
 import { CustomHighlightDirective } from './custom-highlight/custom-highlight.directive';
+import { UnlessDirective } from './unless/unless.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CustomHighlightDirective } from './custom-highlight/custom-highlight.di
     BasicHighlightDirective,
     BetterHighlightDirective,
     ThirdHighlightDirective,
-    CustomHighlightDirective
+    CustomHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

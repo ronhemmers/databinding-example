@@ -81,17 +81,35 @@
   <p appThirdHighlight>Style me with third directive (HostBinding and HostListener)</p>
   <p appCustomHighlight [defaultColor]="'Yellow'" [highlightColor]="'Pink'">Style me with custom directive</p>
 
-  <hr>
 
+  <!-- Use of ng-tempalte (this is what happens behind the scenes with *ngIf)-->
   <ng-template [ngIf]="!onlyOdd">
+    <hr>
     <div>
+      <p>ng-template... just show 1 number</p>
       <li
         class="list-group-item"
         [ngClass]="{odd: number % 2 !== 0}"
         [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'lightyellow' : '#f2f2f2'}"
-        *ngFor="let number of someEvenNumbers">
+        *ngFor="let number of someEvenNumbers.slice(0,1)">
         {{ number }}
       </li>
     </div>
   </ng-template>
+
+  <!-- Use of a custom structural directive -->
+  <!-- Use our new unless directive with ng-template (behind the scenes)-->
+  <!-- Note, we're still using the '*' because it's a structural directive, otherwise you have to use the ng-template syntax -->
+  <div *appUnless="onlyOdd">
+    <hr>
+    <p>*appUnless... just show 1 number</p>
+    <li
+      class="list-group-item"
+      [ngClass]="{odd: number % 2 !== 0}"
+      [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'lightyellow' : '#f2f2f2'}"
+      *ngFor="let number of someEvenNumbers.slice(1,2)">
+      {{ number }}
+    </li>
+  </div>
+
 </div>
