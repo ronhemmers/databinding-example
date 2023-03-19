@@ -80,4 +80,18 @@
   <p appBetterHighlight>Style me with better directive (Renderer2 and HostListener)</p>
   <p appThirdHighlight>Style me with third directive (HostBinding and HostListener)</p>
   <p appCustomHighlight [defaultColor]="'Yellow'" [highlightColor]="'Pink'">Style me with custom directive</p>
+
+  <hr>
+
+  <ng-template [ngIf]="!onlyOdd">
+    <div>
+      <li
+        class="list-group-item"
+        [ngClass]="{odd: number % 2 !== 0}"
+        [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'lightyellow' : '#f2f2f2'}"
+        *ngFor="let number of someEvenNumbers">
+        {{ number }}
+      </li>
+    </div>
+  </ng-template>
 </div>
