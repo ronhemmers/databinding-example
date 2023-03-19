@@ -13,6 +13,9 @@ export class BetterHighlightDirective implements OnInit {
    * We need access to the element and we will use a Renderer2 as well.
    * And use the methods the renderer provides to access the DOM.
    * 
+   * *** The problem is it's not very interactive on changes... so we can use
+   * *** the HostListener() instead for dynamic behavior.
+   * 
    * @param elementRef 
    * @param renderer 
    */
