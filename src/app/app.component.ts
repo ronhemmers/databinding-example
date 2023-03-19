@@ -16,6 +16,7 @@ export class AppComponent {
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
 
+
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
     this.serverElements.push({
       type: 'server',
@@ -88,4 +89,9 @@ export class AppComponent {
   getToggleString(): string {
     return this.onlyOdd ? "Show only even numbers" : "Show only odd numbers";
   }
+
+  // ----------------------------------------------------------------------
+
+  value = 3.141;
+
 }

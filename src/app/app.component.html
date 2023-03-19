@@ -112,4 +112,16 @@
     </li>
   </div>
 
+  <!-- Use of ngSwitch... bind to ngSwitch with property binding, thus no * -->
+  <!-- We only want to display one of these paragraphs at a time depending on the value variable -->
+  <!-- Useful if you have a lot of *ngIf cases -->
+  <div [ngSwitch]="value">
+    <hr>
+    <h4>--- ngSwitch ---</h4>
+    <p *ngSwitchCase="5">Value is 5</p>
+    <p *ngSwitchCase="10">Value is 10</p>
+    <p *ngSwitchCase="100">Value is 100</p>
+    <p *ngSwitchDefault>Value is Default</p>
+  </div>
+
 </div>
